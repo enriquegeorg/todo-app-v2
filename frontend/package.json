@@ -1,0 +1,32 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server --progress --colors --hot --inline",
+    "production": "webpack --progress -p"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/preset-env": "^7.16.11",
+    "axios": "^0.27.1",
+    "babel-loader": "^8.2.5",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "bootstrap": "^5.1.3",
+    "css-loader": "^6.7.1",
+    "file-loader": "^6.2.0",
+    "font-awesome": "^4.7.0",
+    "mini-css-extract-plugin": "^2.6.0",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "react-router": "^6.3.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.72.0",
+    "webpack-dev-server": "^4.8.1"
+  }
+}
