@@ -1,7 +1,9 @@
-import React from "react";
+import React from 'react'
 
-export default props => (
+const About = props => (
     <div>
-        <h1>About</h1>
+        <h1>Sobre</h1>
     </div>
 )
+
+export default About

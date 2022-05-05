@@ -1,7 +1,6 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import App from "./main/app";
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-const container = document.getElementById('app');
-const root = ReactDOM.createRoot(container);
-root.render(<App tab="home" />);
+import App from './main/App'
+
+ReactDOM.render(<App />, document.getElementById('app'))
