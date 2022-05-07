@@ -13,17 +13,27 @@ export default class Todo extends Component {
     this.state = { description: "", list: [] };
     this.handleAdd = this.handleAdd.bind(this);
     this.handleChange = this.handleChange.bind(this);
+
+    this.refresh();
+  }
+
+  refresh() {
+    axios
+      .get(`${URL}?sort=-createdAt`)
+      .then((resp) =>
+        this.setState({ ...this.state, description: "", list: resp.data })
+      );
   }
 
   handleAdd() {
     const description = this.state.description;
-    axios.post(URL, { description }).then(resp => {
-        this.setState({ ...this.state, description: "" });
-    })
+    axios.post(URL, { description }).then((resp) => {
+      this.setState((resp) => this.refresh());
+    });
   }
 
   handleChange(event) {
-    this.setState({...this.state ,description: event.target.value });
+    this.setState({ ...this.state, description: event.target.value });
   }
 
   render() {
@@ -35,7 +45,7 @@ export default class Todo extends Component {
           description={this.state.description}
           handleChange={this.handleChange}
         />
-        <TodoList />
+        <TodoList list={this.state.list}/>
 
         <h2>Nossa história</h2>
         <p>Lorem ipsum dodod</p>
