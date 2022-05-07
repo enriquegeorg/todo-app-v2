@@ -13,6 +13,9 @@ export default class Todo extends Component {
     this.state = { description: "", list: [] };
     this.handleAdd = this.handleAdd.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleRemove = this.handleRemove.bind(this);
+    this.handleMarkAsDone = this.handleMarkAsDone.bind(this);
+    this.handleMarkAsPending = this.handleMarkAsPending.bind(this);
 
     this.refresh();
   }
@@ -32,6 +35,22 @@ export default class Todo extends Component {
     });
   }
 
+  handleMarkAsPending(todo) {
+    axios
+      .put(`${URL}/${todo._id}`, { ...todo, done: false })
+      .then((resp) => this.refresh());
+  }
+
+  handleMarkAsDone(todo) {
+    axios.put(`${URL}/${todo._id}`, { ...todo, done: true }).then((resp) => {
+      this.refresh();
+    });
+  }
+
+  handleRemove(todo) {
+    axios.delete(`${URL}/${todo._id}`).then((resp) => this.refresh());
+  }
+
   handleChange(event) {
     this.setState({ ...this.state, description: event.target.value });
   }
@@ -45,7 +64,12 @@ export default class Todo extends Component {
           description={this.state.description}
           handleChange={this.handleChange}
         />
-        <TodoList list={this.state.list}/>
+        <TodoList
+          list={this.state.list}
+          handleRemove={this.handleRemove}
+          handleMarkAsDone={this.handleMarkAsDone}
+          handleMarkAsPending={this.handleMarkAsPending}
+        />
 
         <h2>Nossa história</h2>
         <p>Lorem ipsum dodod</p>
