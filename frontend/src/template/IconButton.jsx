@@ -5,7 +5,7 @@ const IconButton = props => {
         return null;
     } else {
         return (
-            <button className={`btn btn-${props.style}`} onClick={props.onClick}>
+            <button className={`btn btn-${props.customStyle}`} onClick={props.onClick}>
                 <i className={`fa fa-${props.icon}`}></i>
             </button>
         )
