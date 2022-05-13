@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
 
-const About = props => (
-    <div>
-        <h1>Sobre</h1>
-    </div>
-)
+const About = (props) => (
+  <div>
+    <h1>Sobre</h1>
+  </div>
+);
 
-export default About
+export default About;
